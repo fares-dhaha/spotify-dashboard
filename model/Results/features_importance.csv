@@ -1,0 +1,16 @@
+,feature importance,feature
+0,0.049892154,popularity
+1,0.048591156,duration_ms
+2,0.09277267,explicit
+3,0.1769656,danceability
+4,0.08016673,energy
+5,0.025811143,key
+6,0.04948468,loudness
+7,0.035044592,mode
+8,0.048990145,speechiness
+9,0.044631124,acousticness
+10,0.08398737,instrumentalness
+11,0.042598262,liveness
+12,0.045933366,tempo
+13,0.053648762,time_signature
+14,0.121482216,track_genre
