@@ -54,20 +54,13 @@ genre = pn.widgets.Select(name="genre", value="All", options=["All"]+list(data.t
 
 top_artists_pie = pn.Column(genre, pn.pane.Plotly(pn.bind(create_pie,dataset=df,genre=genre)))
 
-
+with open('sidebar.html', 'r') as file:
+    # Read the content of the file
+    sidebar_content = file.read()
 
 template = pn.template.FastGridTemplate(
 	title="Explore Dataset",
-    sidebar=[pn.pane.HTML("""
-        <h1>Spotify Dashboard</h1>
-        <h2>Explore more:</h2>
-        <ul>
-            <h3><li><a href='http://localhost:5006/dashboard1'>Explore Dataset</a></li></h3>
-            <h3><li><a href='http://localhost:5006/dashboard2'>Statistical Analysis</a></li></h3>
-            <h3><li><a href='http://localhost:5006/dashboard3'>Machine Learning</a></li></h3> 
-                        
-        </ul>
-    """)],
+    sidebar=[pn.pane.HTML(sidebar_content)],
     accent_base_color="88d8b0", header_background="#1DB954", prevent_collision=True
 
 )
