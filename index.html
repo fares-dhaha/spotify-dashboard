@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('Spotify.png'); /* Replace 'your-image-url.jpg' with the actual URL or path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* This ensures that the background covers the entire viewport height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center content both vertically and horizontally */
+            color: #fff; /* Set text color to white for better readability on a background image */
+            position: relative; /* Set position to relative for absolute positioning of the text in the corner */
+        }
+
+        h1 {
+            color: #6eff97; /* Light green */
+            margin-top: 20px; /* Adjusted top margin of the title */
+            margin-bottom: 20px; /* Adjust the bottom margin of the title */
+        }
+
+        .dashboard-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dashboard-button {
+            background-color: #4CAF50; /* Dark green */
+            color: #fff;
+            padding: 15px 40px; /* Adjusted padding for all buttons to have identical size */
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 10px 0; /* Add space between buttons */
+            width: 100%; /* Set width to 100% to ensure all buttons have the same width */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .dashboard-button:hover::before {
+            content: attr(data-text);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px;
+            border-radius: 4px;
+            z-index: 2;
+            color: #000;
+            font-size: 12px;
+        }
+
+        .dashboard-button[data-text="Explore the modeling and ML section."]:hover::before {
+            content: attr(data-text);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px;
+            border-radius: 4px;
+            z-index: 2;
+            color: #000;
+            font-size: 12px;
+        }
+
+        #dashboard-container {
+            margin-top: 20px;
+        }
+
+        iframe {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Home Page</h1>
+
+    <div class="dashboard-buttons">
+        <a class="dashboard-button" href="#" onclick="loadDashboard('dashboard1')" data-text="Explore the EDA dashboard.">Go to EDA Dashboard</a>
+        <a class="dashboard-button" href="#" onclick="loadDashboard('dashboard3')" data-text="More EDA">Explore more EDA</a>
+        <a class="dashboard-button" href="#" onclick="loadDashboard('dashboard2')" data-text="Explore the modeling and ML section.">Go to Modeling & ML Section</a>
+    </div>
+
+    <div id="dashboard-container"></div>
+
+    <script>
+        function loadDashboard(dashboardName) {
+            var container = document.getElementById('dashboard-container');
+            container.innerHTML = ''; // Clear the container
+
+            // Load the Panel dashboard dynamically based on the selected dashboardName
+            if (dashboardName === 'dashboard1') {
+                // You can replace the URL with the actual URL of your Panel dashboard
+                container.innerHTML = '<iframe src="http://localhost:5006/dashboard1" width="100%" height="500"></iframe>';
+            } else if (dashboardName === 'dashboard2') {
+                // You can replace the URL with the actual URL of your Panel dashboard
+                container.innerHTML = '<iframe src="http://localhost:5006/dashboard2" width="100%" height="500"></iframe>';
+            } else if (dashboardName === 'dashboard3') {
+                // You can replace the URL with the actual URL of your Panel dashboard
+                container.innerHTML = '<iframe src="http://localhost:5006/dashboard3" width="100%" height="500"></iframe>';
+            }
+        }
+    </script>
+
+</body>
+</html>
